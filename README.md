@@ -15,3 +15,4 @@ The following [slides](https://docs.google.com/presentation/d/1e2P15HbtsJ3QiQXl0
 ![GEOTRACKER](./GEOTRACKER/GEOTRACKER.gif)
 
 GEOTRACKER shows the nuber of people in a place. By specifying the date and  time researchers can identify people gathering at different places.
+ok
