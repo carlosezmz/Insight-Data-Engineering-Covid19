@@ -5,7 +5,7 @@
 
 Covid Alliance is a non-profit organization composed of volunteering Data Engineers and Data Scientist building a PANDEMIC MANAGEMENT PLATFORM by integrating diverse datasets. Their first problem is that their Geolocation data is too large, to tackle this problem they created a clustering algorithm. Their second problem is that the clustering algorithm takes too long process data and 3% of the data is loss due to pings with duplicated times are dropped. My approach improved their clustering algorithm by taking one of the duplicates and at the same time reducing the running time.
 
-![Algorithm Performance](./Images/Algorithm Performance)
+![Algorithm Performance](./Images/Algorithm Performance.png)
 
 It is not secret Covid-19 has changed the way we live, from mandatory social distancing rules and sometimes hitting our most loved ones. In this project I built data pipelines to process GEOLOCATION data to help researchers find HOTSTPOTS and investigate people gathering at large events.
 
