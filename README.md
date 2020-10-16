@@ -3,6 +3,7 @@
 # GEOTRACKER
 ### TRACING COVID-19
 
+Covid Alliance is a non-profit organization composed of volunteering Data Engineers and Data Scientist building a PANDEMIC MANAGEMENT PLATFORM by integrating diverse datasets. One of their main issues is that their Geolocation data is too large, to tackle this problem they created a clustering algorithm
 It is not secret Covid-19 has changed the way we live, from mandatory social distancing rules and sometimes hitting our most loved ones. In this project I built data pipelines to process GEOLOCATION data to help researchers find HOTSTPOTS and investigate people gathering at large events.
 
 
