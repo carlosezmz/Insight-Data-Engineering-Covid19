@@ -13,7 +13,7 @@ Covid Alliance is a non-profit organization composed of volunteering Data Engine
 </p>
 
 
-### CLustering Algorithm Improvements
+### Clustering Algorithm Improvements
 
 My approach improved their clustering algorithm and at the same time decreased the running time. The following image shows the result of my approach compared to the old clustering algorithm where a sample of the data of 77.5 GB was reduced to 2.1 GB having 497,000 users in Phoenix Arizon from July 15 to September 3. By taking one of the duplicated pings and prioritizing the first ping per user the number of raw pings to be clustered increased to approximately 1.4%. In return the number of clustered produced also increased close to 1%. Despite more data was being processed my approach took 81% fo the time as compared to old clustering algorithm.
 
@@ -44,9 +44,9 @@ How does the data pipeline work? The raw pings are stored in Snowflake and the S
 
 ### Engineering Challenge
 
-#### Data loss Vs Reproducible Results
+#### Data Loss Vs Reproducible Results
 
-The first challenge was to reduce the data loss and having reproducible results. My first approach consisted on marking every row partitioned by user ID and timestamp of the ping. The data was then spllitted into a table that were marked with a row as 1 and another table where rows were marked greater than 1. The table with rows above 1 was processed using a Z score of the distance of neighboring points as a way to remove outliers and then averaging pings that were inside of 95% confidence interval. Then the averaged table was joint with the table with rows marked as 1. The main problem was that using this method for the same input data was producing different results every time the query was run. After realizing that in some rare case there were more than two duplicates, I decided not to do the Z score as a way to save an step in the process, but the final output ws not reproducible.
+The first challenge was to reduce the data loss and having reproducible results. My first approach consisted on marking every row partitioned by user ID and timestamp of the ping. The data was then spllitted into a table that were marked with a row as 1 and another table where rows were marked greater than 1. The table with rows above 1 was processed using a Z score of the distance of neighboring points as a way to remove outliers and then averaging pings that were inside of 95% confidence interval. Then the averaged table was joint with the table with rows marked as 1. The main problem was that using this method for the same input data was producing different results every time the query was run. After realizing that in some rare case there were more than two duplicates, I decided not to do the Z score as a way to save an step in the process, but the final output was not reproducible.
 
 
 <p align="center">
@@ -58,11 +58,19 @@ The first challenge was to reduce the data loss and having reproducible results.
 </p>
 
 
+The first approach was not giving reproducible for two reasons. First, one of the dupicated pings was also marked as 1. Second, some duplicated pings had the same speed. In other words, some duplicated pings were marked as 1 randomly and most pings marked above 1 were being averaged just by itself. To actually average duplicated pings, my second approach was to count and select the pings with a count greater than 1. Then the table with duplicated pings was averaged and joint with the table with a count of only 1 for user ID and timestamp.
+
+
 <p align="center">
   <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Averaging%20Approach.png">
 </p>
 
+#### Running Time
 
+
+<p align="center">
+  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Averaging%20Approach.png">
+</p>
 
 <p align="center">
   <img width="900" height="350" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
