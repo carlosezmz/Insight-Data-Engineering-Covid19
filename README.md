@@ -14,7 +14,7 @@ Covid Alliance is a non-profit organization composed of volunteering Data Engine
 My approach improved their clustering algorithm and at the same time decreased the running time. The following image shows the result of my approach compared to the old clustering algorithm where a sample of the data of 497,000 users in Phoenix Arizon from July to September 3 77.5 GB was reduced to 2.1 GB. By taking one of the duplicated pings and prioritizing the first ping per user the number of raw pings to be clustered increased to approximately 1.4%. In return the number of clustered produced also increased close to 1%. Despite more data was being processed my approach took 81% fo the time as compared to old clustering algorithm.
 
 <p align="center">
-  <img width="900" height="750" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Algorithm%20Performance.png">
+  <img width="1000" height="650" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Algorithm%20Performance.png">
 </p>
 In addition, to facillitate the work of researchers.
 
