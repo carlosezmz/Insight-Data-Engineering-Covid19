@@ -17,7 +17,7 @@
 
 ### Clustering Algorithm Improvements
 
-My approach improved their clustering algorithm and at the same time decreased the running time. The following image shows the result of my approach compared to the old clustering algorithm where a sample of the data of 77.5 GB was reduced to 2.1 GB having 497,000 users in Phoenix Arizon from July 15 to September 3. By taking one of the duplicated pings and prioritizing the first ping per user the number of raw pings to be clustered increased to approximately 1.4%. In return the number of clustered produced also increased close to 1%. Despite more data was being processed my approach took 81% fo the time as compared to old clustering algorithm.
+My approach improved their clustering algorithm and at the same time decreased the running time. The following image shows the result of my approach compared to the old clustering algorithm where a sample of the data of 77.5 GB was reduced to 2.1 GB having 497,000 users in Phoenix Arizon from July 15 to September 3. By taking one of the duplicated pings and prioritizing the first ping per user the number of raw pings to be clustered increased to approximately 1.4%. In return the number of clustered produced also increased close to 1%. Despite more data was being processed my approach took 81% of the time as compared to old clustering algorithm.
 
 
 <p align="center">
