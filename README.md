@@ -10,7 +10,7 @@ Covid Alliance is a non-profit organization composed of volunteering Data Engine
    
    
 <p align="center">
-  <img width="460" height="300" src="./Images/Clustering Pings.png/460/300">
+  <img width="460" height="300" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Clustering%20Pings.png">
 </p>
 
 #### CLustering Algorith Improvements
