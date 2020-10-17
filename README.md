@@ -44,7 +44,7 @@ How does the data pipeline work? The raw pings are stored in Snowflake and the S
 
 ### Engineering Challenge
 
-#### Data Loss Vs Reproducible Results
+#### Data Loss Vs Reproducible Results Vs Running Time
 
 The first challenge was to reduce the data loss and having reproducible results. My first approach consisted on marking every row partitioned by user ID and timestamp of the ping. The data was then spllitted into a table that were marked with a row as 1 and another table where rows were marked greater than 1. The table with rows above 1 was processed using a Z score of the distance of neighboring points as a way to remove outliers and then averaging pings that were inside of 95% confidence interval. Then the averaged table was joint with the table with rows marked as 1. The main problem was that using this method for the same input data was producing different results every time the query was run. After realizing that in some rare case there were more than two duplicates, I decided not to do the Z score as a way to save an step in the process, but the final output was not reproducible.
 
@@ -52,6 +52,7 @@ The first challenge was to reduce the data loss and having reproducible results.
 <p align="center">
   <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Z%20Score%20Approach.png">
 </p>
+
 
 <p align="center">
   <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Row%20Averaging%20Approach.png">
@@ -65,12 +66,9 @@ The first approach was not giving reproducible for two reasons. First, one of th
   <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Averaging%20Approach.png">
 </p>
 
-#### Running Time
 
+Despite separating and averaging duplicated pings produced consistent results, the steps taken to group duplicated pings then filtering non-duplicates increased the running time of the process by approximately 25% compared to the old clustering algorithm. To reduce the running time and at the same time reduce the data loss, my final approach was numerating the rows by user ID and timestamp ordered by speed, latittude and longitude. Then selecting the rows that were numbered as 1. This method ensured the duplicated ping chosen was not picked at random. In other words, from the duplicated pings I picked the ping with lowest speed, lowest latittude and lowest longitude. This strategy cut the number of steps before clustering pings and at the same time decreased the running time by approximately 19%.
 
-<p align="center">
-  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Big%20Running%20Time.png">
-</p>
 
 <p align="center">
   <img width="900" height="350" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
