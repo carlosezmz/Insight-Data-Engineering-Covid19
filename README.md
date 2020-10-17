@@ -28,7 +28,7 @@ In addition, to facillitate the work of researchers to find hotspots and study g
 The tech stack used by Covid Alliance are Snowflake, Pachyderm, Looker, and Kubernetes. [Snowflake](https://www.snowflake.com/) is a SaaS cloud data warehouse built on top of AWS. More deatils of Snowflake can be found [here](https://medium.com/hashmapinc/snowflakes-cloud-data-warehouse-what-i-learned-and-why-i-m-rethinking-the-data-warehouse-75a5daad271c). [Pachyderm](https://www.pachyderm.com/) is the Git version of data pipeline orchestration to have reproducible results. [Reasons to use Pachyderm](https://medium.com/bigdatarepublic/pachyderm-for-data-scientists-d1d1dff3a2fa): having a group of data scientist working with same datasets using different models reproducing different resulst can be tracked by the repositories each data scientist is using. [Looker](https://looker.com/) is a visualization tool used to create dashboards to help end users make faster and smarter decisions. [Benefits](https://blog.aptitive.com/power-bi-vs-looker-vs-tableau-a-ctos-guide-to-selecting-an-analytics-bi-platform-5edc519f2d12) of using Looker include: collaborative data sharing, and create metrics without adding multiple versions of slightly different metric to you tables.
 
 <p align="center">
-  <img width="1000" height="400" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Pipeline.png">
+  <img width="1000" height="350" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Pipeline.png">
 </p>
 
 How the data pipelin works? The raw pings are stored in Snowflake and the SQL scripts live in Pachyderm repos. Every time a researcher wants to create clusters, it will need to send file to Pachyderm with the following parameters: the name of the table that contains the raw pings, the name of the table where the pre-clusters will be saved, the start-date and end-date. The raw pings will be extracted from Snowflake, transformed, and the pre-clusters will be saved into Snowflake. Later the new created pre-cluster can then be visualized in Looker.
@@ -36,7 +36,7 @@ How the data pipelin works? The raw pings are stored in Snowflake and the SQL sc
 ### Engineering Challenge
 
 <p align="center">
-  <img width="500" height="450" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Clustering%20Pings.png">
+  <img width="800" height="200" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Z%20Score%20Approach.png">
 </p>
 
 
