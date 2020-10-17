@@ -11,11 +11,12 @@ Covid Alliance is a non-profit organization composed of volunteering Data Engine
 </p>
 
 #### CLustering Algorith Improvements
-My approach improved their clustering algorithm by taking one of the duplicates and at the same time reducing the running time.
+My approach improved their clustering algorithm and at the same time decreased the running time. The following image shows the result of my approach compared to the old clustering algorithm where a sample of the data of 497,000 users in Phoenix Arizon from July to September 3 77.5 GB was reduced to 2.1 GB. By taking one of the duplicated pings and prioritizing the first ping per user the number of raw pings to be clustered increased to approximately 1.4%. In return the number of clustered produced also increased close to 1%. Despite more data was being processed my approach took 81% fo the time as compared to old clustering algorithm.
 
-![Algorithm Performance](https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Algorithm%20Performance.png)
-
-It is not secret Covid-19 has changed the way we live, from mandatory social distancing rules and sometimes hitting our most loved ones. In this project I built data pipelines to process GEOLOCATION data to help researchers find HOTSTPOTS and investigate people gathering at large events.
+<p align="center">
+  <img width="1000" height="750" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Algorithm%20Performance.png">
+</p>
+In addition, to facillitate the work of researchers.
 
 
 The following [slides](https://docs.google.com/presentation/d/1e2P15HbtsJ3QiQXl0H0nv10ulYOfAeWvLBiVEU1aJ9k/edit#slide=id.g6b20e22304_0_78) show the methodology of how I improved a clustering algorithm to process geolocation data. After reducing the dimensions of the dataset from 77.5GB to 2.1GB form users in Phoenix Arizon from July 15th, 2020 to September 3rd, 2020. I created GEOTTACKER which visualizes the preclusters in Looker to facillitate the work of researchers.
