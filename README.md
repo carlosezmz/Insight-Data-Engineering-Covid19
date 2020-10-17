@@ -67,9 +67,14 @@ The first approach was not giving reproducible for two reasons. First, one of th
 </p>
 
 
-Despite separating and averaging duplicated pings produced consistent results, the steps taken to group duplicated pings then filtering non-duplicates increased the running time of the process by approximately 25% compared to the old clustering algorithm. To reduce the running time and at the same time reduce the data loss, my final approach was numerating the rows by user ID and timestamp ordered by speed, latittude and longitude. Then selecting the rows that were numbered as 1. This method ensured the duplicated ping chosen was not picked at random. In other words, from the duplicated pings I picked the ping with lowest speed, lowest latittude and lowest longitude. This strategy cut the number of steps before clustering pings and at the same time decreased the running time by approximately 19%.
+Despite separating and averaging duplicated pings produced consistent results, the steps taken to group duplicated pings then filtering non-duplicates increased the running time of the process by approximately 25% compared to the old clustering algorithm. To reduce the running time and at the same time reduce the data loss, my final approach was numerating the rows by user ID and timestamp ordered by speed, latittude and longitude. Then selecting the rows that were numbered as 1. This method ensured the duplicated ping chosen was not picked at random. In other worlds, from the duplicated pings I picked the ping with lowest speed, lowest latittude and lowest longitude. This strategy cut the number of steps before clustering pings and at the same time decreased the running time by approximately 19%.
 
 
 <p align="center">
   <img width="900" height="350" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
 </p>
+
+
+### Miscellaneous
+
+A detailed presentation of this project can be found  here, [Google Slides](https://docs.google.com/presentation/d/1e2P15HbtsJ3QiQXl0H0nv10ulYOfAeWvLBiVEU1aJ9k/edit#slide=id.g72416fa8cc_1_884).
