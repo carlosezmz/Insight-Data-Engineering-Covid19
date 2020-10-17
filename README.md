@@ -50,14 +50,14 @@ The first challenge was to reduce the data loss and having reproducible results.
 
 
 <p align="center">
-  <img width="900" height="300" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Z%20Score%20Approach.png">
+  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Z%20Score%20Approach.png">
 </p>
 
 <p align="center">
-  <img width="900" height="300" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Row%20Averaging%20Approach.png">
+  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Row%20Averaging%20Approach.png">
 </p>
 
 
 <p align="center">
-  <img width="900" height="300" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
+  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
 </p>
