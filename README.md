@@ -36,7 +36,7 @@ How the data pipelin works? The raw pings are stored in Snowflake and the SQL sc
 ### Engineering Challenge
 
 <p align="center">
-  <img width="800" height="250" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Z%20Score%20Approach.png">
+  <img width="900" height="290" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Z%20Score%20Approach.png">
 </p>
 
 
