@@ -3,7 +3,9 @@
 # GEOTRACKER
 ### TRACING COVID-19
 
-Covid Alliance is a non-profit organization composed of volunteering Data Engineers and Data Scientist building a PANDEMIC MANAGEMENT PLATFORM by integrating diverse datasets. Their first problem is that their Geolocation data is too large, to tackle this problem they created a clustering algorithm. Their second problem is that the clustering algorithm takes too long process data and 3% of the data is loss due to pings with duplicated times are dropped. My approach improved their clustering algorithm by taking one of the duplicates and at the same time reducing the running time.
+Covid Alliance is a non-profit organization composed of volunteering Data Engineers and Data Scientist building a PANDEMIC MANAGEMENT PLATFORM by integrating diverse datasets. Their first problem is that their Geolocation data is messy and large (over 30TB). To tackle this problem they created a clustering algorithm, which process reduces to where an individual has spent time. In other words, instead of having multiple.
+
+Their second problem is that the clustering algorithm takes too long process data and 3% of the data is loss due to pings with duplicated times are dropped. My approach improved their clustering algorithm by taking one of the duplicates and at the same time reducing the running time.
 
 ![Algorithm Performance](https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Algorithm%20Performance.png)
 
