@@ -34,3 +34,8 @@ The tech stack used by Covid Alliance are Snowflake, Pachyderm, and Looker.
 <p align="center">
   <img width="500" height="450" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Clustering%20Pings.png">
 </p>
+
+
+<p align="center">
+  <img width="500" height="450" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Clustering%20Pings.png">
+</p>
