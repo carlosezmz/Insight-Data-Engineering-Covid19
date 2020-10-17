@@ -1,16 +1,18 @@
 # Insight Data Engineering
 
 # GEOTRACKER
-### TRACING COVID-19
+## TRACING COVID-19
 
-#### Business Problem
-Covid Alliance is a non-profit organization composed of volunteering Data Engineers and Data Scientist building a PANDEMIC MANAGEMENT PLATFORM by integrating diverse datasets. Their first problem is that their Geolocation data is messy and large (over 30TB). To tackle this problem they created a clustering algorithm which reduces the number of rows of the raw data. To inderstand how the clustering algorithm works, please direct your attention to iage below. Let's assume you have three individuals at the given location. The blue pings represent the exact location and time of all every individual. Those blue pings can be reduced into three rows (red pings) which details the time of arrival, time of departure, mean latittude, mean longitude, and how far they have gone from the mean location. Their second problem is that the clustering algorithm takes too long process data and 3% of the data is loss due to pings with duplicated times are dropped. 
+### Business Problem
+
+Covid Alliance is a non-profit organization composed of volunteering Data Engineers and Data Scientist building a PANDEMIC MANAGEMENT PLATFORM by integrating diverse datasets. Their first problem is that their Geolocation data is messy and large (over 30TB). To tackle this problem they created a clustering algorithm which reduces the number of rows of the raw data. To understand how the clustering algorithm works, please direct your attention to iage below. Let's assume you have three individuals at the given location. The blue pings represent the exact location and time of all every individual. Those blue pings can be reduced into three rows (red pings) which details the time of arrival, time of departure, mean latittude, mean longitude, and how far they have gone from the mean location. Their second problem is that the clustering algorithm takes too long process data and 3% of the data is loss due to pings with duplicated times are dropped. 
    
 <p align="center">
   <img width="500" height="450" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Clustering%20Pings.png">
 </p>
 
-#### CLustering Algorithm Improvements
+### CLustering Algorithm Improvements
+
 My approach improved their clustering algorithm and at the same time decreased the running time. The following image shows the result of my approach compared to the old clustering algorithm where a sample of the data of 77.5 GB was reduced to 2.1 GB having 497,000 users in Phoenix Arizon from July to September 3. By taking one of the duplicated pings and prioritizing the first ping per user the number of raw pings to be clustered increased to approximately 1.4%. In return the number of clustered produced also increased close to 1%. Despite more data was being processed my approach took 81% fo the time as compared to old clustering algorithm.
 
 <p align="center">
@@ -21,15 +23,17 @@ In addition, to facillitate the work of researchers to find hotspots and study g
 
 ![GEOTRACKER](./GEOTRACKER/GEOTRACKER.gif)
 
-#### Data Pipeline
-The tech stack used by Covid Alliance are Snowflake, Pachyderm, and Looker.
+### Data Pipeline
+
+The tech stack used by Covid Alliance are Snowflake, Pachyderm, Looker, and Kubernetes. [Snowflake](https://www.snowflake.com/) is a SaaS cloud data warehouse built on top of AWS. More deatils of Snowflake can be found [here](https://medium.com/hashmapinc/snowflakes-cloud-data-warehouse-what-i-learned-and-why-i-m-rethinking-the-data-warehouse-75a5daad271c). [Pachyderm](https://www.pachyderm.com/) is the Git version of data pipeline orchestration to have reproducible results. [Reasons to use Pachyderm](https://medium.com/bigdatarepublic/pachyderm-for-data-scientists-d1d1dff3a2fa): having a group of data scientist working with same datasets using different models reproducing different resulst can be tracked by the repositories each data scientist is using. [Looker](https://looker.com/) is a visualization tool used to create dashboards to help end users make faster and smarter decisions. [Benefits](https://blog.aptitive.com/power-bi-vs-looker-vs-tableau-a-ctos-guide-to-selecting-an-analytics-bi-platform-5edc519f2d12) of using Looker include: collaborative data sharing, and create metrics without adding multiple versions of slightly different metric to you tables.
 
 <p align="center">
   <img width="1000" height="400" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Pipeline.png">
 </p>
 
+How the data pipelin works? The raw pings are stored in Snowflake and the SQL scripts live in Pachyderm repos. Every time a researcher wants to create clusters, it will need to send file to Pachyderm with the following parameters: the name of the table that contains the raw pings, the name of the table where the pre-clusters will be saved, the start-date and end-date. The raw pings will be extracted from Snowflake, transformed, and the pre-clusters will be saved into Snowflake. Later the new created pre-cluster can then be visualized in Looker.
 
-#### Engineering Challenge
+### Engineering Challenge
 
 <p align="center">
   <img width="500" height="450" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Clustering%20Pings.png">
