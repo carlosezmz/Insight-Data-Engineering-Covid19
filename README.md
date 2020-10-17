@@ -59,5 +59,5 @@ The first challenge was to reduce the data loss and having reproducible results.
 
 
 <p align="center">
-  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
+  <img width="900" height="350" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Workable%20Approach.png">
 </p>
