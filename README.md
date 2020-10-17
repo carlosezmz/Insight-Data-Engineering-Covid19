@@ -69,7 +69,7 @@ The first approach was not giving reproducible for two reasons. First, one of th
 
 
 <p align="center">
-  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Averaging%20Approach.png">
+  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Big%20Running%20Time.png">
 </p>
 
 <p align="center">
