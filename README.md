@@ -39,14 +39,14 @@ The tech stack used by Covid Alliance are Snowflake, Pachyderm, Looker, and Kube
 </p>
 
 
-How the data pipelin works? The raw pings are stored in Snowflake and the SQL scripts live in Pachyderm repos. Every time a researcher wants to create clusters, it will need to send file to Pachyderm with the following parameters: the name of the table that contains the raw pings, the name of the table where the pre-clusters will be saved, the start-date and end-date. The raw pings will be extracted from Snowflake, transformed, and the pre-clusters will be saved into Snowflake. Later the new created pre-cluster can then be visualized in Looker.
+How does the data pipeline work? The raw pings are stored in Snowflake and the SQL scripts live in Pachyderm repos. Every time a researcher wants to create clusters, it will need to send file to Pachyderm with the following parameters: the name of the table that contains the raw pings, the name of the table where the pre-clusters will be saved, the start-date and end-date. The raw pings will be extracted from Snowflake, transformed, and the pre-clusters will be saved into Snowflake. Later the new created pre-cluster can then be visualized in Looker.
 
 
 ### Engineering Challenge
 
 #### Data loss Vs Reproducible Results
 
-The first challenge was to reduce the data loss and having reproducible results. My first approach consisted on marking every row partitioned by user ID and timestamp of the ping. The data was then spllitted into a table that were marked with a row as 1 and another table where rows were marked greater than 1. 
+The first challenge was to reduce the data loss and having reproducible results. My first approach consisted on marking every row partitioned by user ID and timestamp of the ping. The data was then spllitted into a table that were marked with a row as 1 and another table where rows were marked greater than 1. The table with rows above 1 was processed using a Z score of the distance of neighboring points as a way to remove outliers and then averaging pings that were inside of 95% confidence interval. Then the averaged table was joint with the table with rows marked as 1. The main problem was that using this method for the same input data was producing different results every time the query was run. After realizing that in some rare case there were more than two duplicates, I decided not to do the Z score as a way to save an step in the process, but the final output ws not reproducible.
 
 
 <p align="center">
@@ -56,6 +56,12 @@ The first challenge was to reduce the data loss and having reproducible results.
 <p align="center">
   <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Row%20Averaging%20Approach.png">
 </p>
+
+
+<p align="center">
+  <img width="900" height="320" src="https://github.com/carlosezmz/Insight-Data-Engineering-Covid19/blob/master/Images/Row%20Averaging%20Approach.png">
+</p>
+
 
 
 <p align="center">
