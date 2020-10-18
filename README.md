@@ -1,6 +1,3 @@
-# Insight Data Engineering
-
-
 # GEOTRACKER
 ## TRACING COVID-19
 
